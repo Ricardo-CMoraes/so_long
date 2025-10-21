@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 20:14:37 by rdcm              #+#    #+#             */
-/*   Updated: 2025/10/20 23:47:22 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/10/21 00:12:30 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@
 # define LEFT_KEY 65361
 # define DOWN_KEY 65364
 # define RIGHT_KEY 65363
+# define FLOOR "./tiles/path_tile32.xpm"
+# define WATER "./tiles/water_tile32.xpm"
+# define MEAT "./tiles/Meat32_3.xpm"
+# define PLAYER "./tiles/player32.xpm"
+# define EXIT "./tiles/exit_32.xpm"
 
 typedef struct	s_game {
 	void	*mlx;
