@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 20:56:15 by rdcm              #+#    #+#             */
-/*   Updated: 2025/10/20 23:48:52 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/10/21 00:34:39 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	init_game(t_game *game, char **argv)
 {
-	
 	if (!read_map(argv[1], game))
 		return (0);
 	if (!validate_map(game))

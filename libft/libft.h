@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 20:12:09 by rida-cos          #+#    #+#             */
-/*   Updated: 2025/10/04 17:56:46 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/10/21 00:32:22 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,11 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
-int					ft_printf(const char *text, ...);
-int					ft_putstr(char *s, int fd);
-int					ft_putnbr(int n, int fd);
-int					ft_putptr(void *addr);
-int					ft_puthex(unsigned int nb, char type);
+int		ft_printf(const char *text, ...);
+int		ft_putstr(char *s, int fd);
+int		ft_putnbr(int n, int fd);
+int		ft_putptr(void *addr);
+int		ft_puthex(unsigned int nb, char type);
 unsigned int		ft_putnbr_unsigned(unsigned int n, int fd);
 unsigned long long	n_digits(unsigned long long n, size_t base);
 char	*get_next_line(int fd);

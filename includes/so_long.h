@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 20:14:37 by rdcm              #+#    #+#             */
-/*   Updated: 2025/10/21 00:12:30 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/10/21 00:30:04 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@
 # define PLAYER "./tiles/player32.xpm"
 # define EXIT "./tiles/exit_32.xpm"
 
-typedef struct	s_game {
+typedef struct s_game
+{
 	void	*mlx;
 	void	*win;
 	char	**map;
@@ -49,34 +50,34 @@ typedef struct	s_game {
 	int		player_y;
 	int		collectible_count;
 	int		move_count;
-	int 	p_count;
-	int 	e_count;
-	int 	c_count;
+	int		p_count;
+	int		e_count;
+	int		c_count;
 }				t_game;
 
-int	init_game(t_game *game, char **argv);
+int		init_game(t_game *game, char **argv);
 
-void 	render_tile(t_game *game, int x, int y);
+void	render_tile(t_game *game, int x, int y);
 void	render_map(t_game *game);
 int		load_images(t_game *game);
 void	update_map(t_game *game, int new_x, int new_y);
 
 int		read_map(char *filename, t_game *game);
-char    **copy_map(t_game *game);
+char	**copy_map(t_game *game);
 
-void 	free_map(char **map, int rows);
-int 	cleanup_game(t_game *game);
+void	free_map(char **map, int rows);
+int		cleanup_game(t_game *game);
 
-int	check_arguments(int argc, char **argv);
+int		check_arguments(int argc, char **argv);
 
-int handle_close_win(t_game *game);
-void try_move(t_game *game, int new_x, int new_y);
-int	key_press(int keycode, t_game *game);
+int		handle_close_win(t_game *game);
+void	try_move(t_game *game, int new_x, int new_y);
+int		key_press(int keycode, t_game *game);
 
-int	check_border(t_game *game);
-void flood_fill(char **map, int y, int x, t_game *game);
-int check_valid_path(t_game *game);
-int check_character(t_game *game);
-int 	validate_map(t_game *game);
+int		check_border(t_game *game);
+void	flood_fill(char **map, int y, int x, t_game *game);
+int		check_valid_path(t_game *game);
+int		check_character(t_game *game);
+int		validate_map(t_game *game);
 
 #endif
