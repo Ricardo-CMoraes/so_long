@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   handle_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 20:45:38 by rdcm              #+#    #+#             */
-/*   Updated: 2025/10/20 23:49:20 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/10/28 22:32:27 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	fill_map(t_game *game, char **line, int *i, int fd)
+{
+	size_t	len;
+
+	len = ft_strlen(*line);
+	if (len > 0 && (*line)[len - 1] == '\n')
+		(*line)[len - 1] = '\0';
+	game->map[*i] = *line;
+	(*i)++;
+	*line = get_next_line(fd);
+}
 
 int	read_map(char *filename, t_game *game)
 {
 	char	*line;
 	int		fd;
 	int		i;
-	size_t	len;
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
@@ -29,12 +40,7 @@ int	read_map(char *filename, t_game *game)
 	line = get_next_line(fd);
 	while (line)
 	{
-		len = ft_strlen(line);
-		if (len > 0 && line[len - 1] == '\n')
-			line[len - 1] = '\0';
-		game->map[i] = line;
-		i++;
-		line = get_next_line(fd);
+		fill_map(game, &line, &i, fd);
 	}
 	game->map[i] = NULL;
 	close(fd);
@@ -64,4 +70,21 @@ char	**copy_map(t_game *game)
 		i++;
 	}
 	return (temp_map);
+}
+
+void	fill_valid_map(char **map, int y, int x, t_game *game)
+{
+	if (y < 0 || y >= game->rows || x < 0 || x >= game->cols)
+		return ;
+	if (map[y][x] == '1' || map[y][x] == 'V')
+		return ;
+	if (map[y][x] == 'C' || map[y][x] == 'E'
+		|| map[y][x] == '0' || map[y][x] == 'P')
+		map[y][x] = 'V';
+	else
+		return ;
+	fill_valid_map(map, y + 1, x, game);
+	fill_valid_map(map, y - 1, x, game);
+	fill_valid_map(map, y, x + 1, game);
+	fill_valid_map(map, y, x - 1, game);
 }

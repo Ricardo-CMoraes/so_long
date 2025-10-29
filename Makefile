@@ -5,13 +5,12 @@ CFLAGS = -Wall -Wextra -Imlx_linux -Ilibft -Iincludes
 SRC = src/so_long.c \
 		src/clear.c \
 		src/render_map.c\
-		src/read_map.c\
+		src/handle_map.c\
 		src/validate_arguments.c\
 		src/game.c\
 		src/interaction.c\
 		src/validate_map.c\
-	  #map.c \
-	  #player.c
+		src/utils.c\
 
 OBJ = $(SRC:.c=.o)
 

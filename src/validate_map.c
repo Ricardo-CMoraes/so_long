@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 15:58:12 by rdcm              #+#    #+#             */
-/*   Updated: 2025/10/21 00:21:54 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/10/22 01:11:43 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,23 +40,6 @@ int	check_border(t_game *game)
 	return (1);
 }
 
-void	flood_fill(char **map, int y, int x, t_game *game)
-{
-	if (y < 0 || y >= game->rows || x < 0 || x >= game->cols)
-		return ;
-	if (map[y][x] == '1' || map[y][x] == 'V')
-		return ;
-	if (map[y][x] == 'C' || map[y][x] == 'E'
-		|| map[y][x] == '0' || map[y][x] == 'P')
-		map[y][x] = 'V';
-	else
-		return ;
-	flood_fill(map, y + 1, x, game);
-	flood_fill(map, y - 1, x, game);
-	flood_fill(map, y, x + 1, game);
-	flood_fill(map, y, x - 1, game);
-}
-
 int	check_valid_path(t_game *game)
 {
 	char	**temp_map;
@@ -68,7 +51,7 @@ int	check_valid_path(t_game *game)
 	temp_map = copy_map(game);
 	if (!temp_map)
 		return (0);
-	flood_fill(temp_map, game->player_y, game->player_x, game);
+	fill_valid_map(temp_map, game->player_y, game->player_x, game);
 	y = 0;
 	while (y < game->rows)
 	{
@@ -98,32 +81,42 @@ int	check_character(t_game *game)
 		while (game->map[y][x] && game->map[y][x] != '\n')
 		{
 			c = game->map[y][x];
-			if (c == 'P')
-			{
-				game->p_count++;
-				game->player_y = y;
-				game->player_x = x;
-			}
-			else if (c == 'E')
-				game->e_count++;
-			else if (c == 'C')
-				game->c_count++;
-			if (c != 'P' && c != 'E' && c != 'C' && c != '1' && c != '0')
+			if (!check_char(game, c, y, x))
 				return (0);
+			x++;
+		}
+		y++;
+	}
+	return (1);
+}
+
+int	check_colums(t_game *game)
+{
+	int		y;
+	int		x;
+
+	y = 0;
+	while (y < game->rows)
+	{
+		x = 0;
+		while (game->map[y][x] && game->map[y][x] != '\n')
+		{
 			x++;
 		}
 		if (x != game->cols)
 			return (0);
 		y++;
 	}
-	if (game->p_count == 1 && game->e_count == 1 && game->c_count >= 1)
-		return (1);
-	return (0);
+	return (1);
 }
 
 int	validate_map(t_game *game)
 {
+	if (!check_colums(game))
+		return (0);
 	if (!check_character(game))
+		return (0);
+	if (!(game->p_count == 1 && game->e_count == 1 && game->c_count >= 1))
 		return (0);
 	if (!check_border(game))
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 20:14:37 by rdcm              #+#    #+#             */
-/*   Updated: 2025/10/21 00:30:04 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/10/22 01:12:58 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	update_map(t_game *game, int new_x, int new_y);
 
 int		read_map(char *filename, t_game *game);
 char	**copy_map(t_game *game);
+void	fill_valid_map(char **map, int y, int x, t_game *game);
 
 void	free_map(char **map, int rows);
 int		cleanup_game(t_game *game);
@@ -75,9 +76,11 @@ void	try_move(t_game *game, int new_x, int new_y);
 int		key_press(int keycode, t_game *game);
 
 int		check_border(t_game *game);
-void	flood_fill(char **map, int y, int x, t_game *game);
 int		check_valid_path(t_game *game);
 int		check_character(t_game *game);
 int		validate_map(t_game *game);
+int		check_colums(t_game *game);
+
+int		check_char(t_game *game, char c, int y, int x);
 
 #endif
