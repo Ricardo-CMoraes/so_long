@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 20:14:37 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/01 12:49:49 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/01 14:57:00 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "libft.h"
 # include <stdlib.h>
 # include <fcntl.h>
+# include <errno.h> 
 
 # define ESC_KEY 65307
 # define W_KEY 119

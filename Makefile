@@ -1,6 +1,6 @@
 NAME = so_long
-CC = cc -g
-CFLAGS = -Wall -Wextra -Imlx_linux -Ilibft -Iincludes
+CC = cc
+CFLAGS = -g -Wall -Wextra -Werror -Imlx_linux -Ilibft -Iincludes
 
 SRC = src/so_long.c \
 		src/clear.c \
