@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 20:42:52 by rdcm              #+#    #+#             */
-/*   Updated: 2025/10/21 00:12:37 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/01 13:26:07 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ int	load_images(t_game *game)
 	if (!game->img_floor || !game->img_wall
 		|| !game->img_collectible || !game->img_player)
 	{
-		ft_printf("Erro: Falha ao carregar uma das imagens\n");
 		return (0);
 	}
 	return (1);

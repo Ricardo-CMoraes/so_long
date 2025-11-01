@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 20:45:38 by rdcm              #+#    #+#             */
-/*   Updated: 2025/10/28 22:32:27 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/01 13:20:31 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ int	read_map(char *filename, t_game *game)
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
-		return (0);
+		error_close_game(game, "Cannot open file");
 	game->map = malloc(sizeof(char *) * 1024);
 	if (!game->map)
-		return (0);
+		error_close_game(game, "Memory allocation failed");
 	i = 0;
 	line = get_next_line(fd);
 	while (line)

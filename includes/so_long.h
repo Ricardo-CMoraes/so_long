@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 20:14:37 by rdcm              #+#    #+#             */
-/*   Updated: 2025/10/22 01:12:58 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/01 12:49:49 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,15 @@
 # define LEFT_KEY 65361
 # define DOWN_KEY 65364
 # define RIGHT_KEY 65363
+
 # define FLOOR "./tiles/path_tile32.xpm"
 # define WATER "./tiles/water_tile32.xpm"
 # define MEAT "./tiles/Meat32_3.xpm"
 # define PLAYER "./tiles/player32.xpm"
 # define EXIT "./tiles/exit_32.xpm"
+
+# define ERR_ARG1 "Invalid arguments."
+# define ERR_ARG2 "Invalid extension. Expected: '.ber'"
 
 typedef struct s_game
 {
@@ -68,6 +72,7 @@ void	fill_valid_map(char **map, int y, int x, t_game *game);
 
 void	free_map(char **map, int rows);
 int		cleanup_game(t_game *game);
+int		error_close_game(t_game *game, char *msg);
 
 int		check_arguments(int argc, char **argv);
 
@@ -82,5 +87,6 @@ int		validate_map(t_game *game);
 int		check_colums(t_game *game);
 
 int		check_char(t_game *game, char c, int y, int x);
+void	print_error(char *msg);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 15:58:12 by rdcm              #+#    #+#             */
-/*   Updated: 2025/10/22 01:11:43 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/01 13:15:27 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,14 @@ int	check_border(t_game *game)
 	while (x < game->cols)
 	{
 		if (game->map[0][x] != '1' || game->map[game->rows - 1][x] != '1')
-		{
-			ft_printf("Error: O mapa não esta cercado por paredes.\n");
 			return (0);
-		}
 		x++;
 	}
 	y = 1;
 	while (y < game->rows - 1)
 	{
 		if (game->map[y][0] != '1' || game->map[y][game->cols - 1] != '1')
-		{
-			ft_printf("Error: O mapa não esta cercado por paredes.\n");
 			return (0);
-		}
 		y++;
 	}
 	return (1);
@@ -113,14 +107,14 @@ int	check_colums(t_game *game)
 int	validate_map(t_game *game)
 {
 	if (!check_colums(game))
-		return (0);
+		error_close_game(game, "Map is not rectangular");
 	if (!check_character(game))
-		return (0);
+		error_close_game(game, "Invalid character in map");
 	if (!(game->p_count == 1 && game->e_count == 1 && game->c_count >= 1))
 		return (0);
 	if (!check_border(game))
-		return (0);
+		error_close_game(game, "Map is not surrounded by walls");
 	if (!check_valid_path(game))
-		return (0);
+		error_close_game(game, "Map is unsolvable");
 	return (1);
 }

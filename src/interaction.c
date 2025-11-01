@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 23:54:56 by rdcm              #+#    #+#             */
-/*   Updated: 2025/10/20 23:40:20 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/10/29 21:34:36 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	handle_close_win(t_game *game)
 {
 	cleanup_game(game);
-	exit(0);
+	exit(EXIT_SUCCESS);
 	return (0);
 }
 
