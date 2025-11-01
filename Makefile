@@ -1,5 +1,5 @@
 NAME = so_long
-CC = cc
+CC = cc -g
 CFLAGS = -Wall -Wextra -Imlx_linux -Ilibft -Iincludes
 
 SRC = src/so_long.c \

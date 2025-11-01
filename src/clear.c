@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 20:13:38 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/01 12:58:24 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/01 13:56:53 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ void	free_map(char **map, int rows)
 
 int	cleanup_game(t_game *game)
 {
-	if (!game)
-		return (0);
 	if (game->mlx)
 	{
 		if (game->img_wall)
@@ -47,7 +45,6 @@ int	cleanup_game(t_game *game)
 		free(game->mlx);
 	}
 	free_map(game->map, game->rows);
-	free(game);
 	return (0);
 }
 
