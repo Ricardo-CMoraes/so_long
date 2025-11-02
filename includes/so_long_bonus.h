@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 20:14:37 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/02 18:55:53 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/02 19:50:22 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ typedef struct s_game
 	int		tile_size;
 	void	*img_floor;
 	void	*img_wall;
-	void	*img_collectible;
+	void	*img_collectable;
 	void	*img_player;
 	void	*img_exit;
 	void	*img_enemy;
 	int		player_x;
 	int		player_y;
-	int		collectible_count;
+	int		collectable_count;
 	int		move_count;
 	int		p_count;
 	int		e_count;

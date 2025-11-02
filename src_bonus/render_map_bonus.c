@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 20:42:52 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/02 18:29:40 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/02 19:52:03 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	render_tile(t_game *game, int x, int y)
 		game->player_y = y;
 	}
 	else if (tile_char == 'C')
-		img = game->img_collectible;
+		img = game->img_collectable;
 	else if (tile_char == 'E')
 		img = game->img_exit;
 	else if (tile_char == 'X')
@@ -66,12 +66,12 @@ int	load_images(t_game *game)
 	game->tile_size = 32;
 	game->img_floor = mlx_xpm_file_to_image(game->mlx, FLOOR, &w, &h);
 	game->img_wall = mlx_xpm_file_to_image(game->mlx, WATER, &w, &h);
-	game->img_collectible = mlx_xpm_file_to_image(game->mlx, MEAT, &w, &h);
+	game->img_collectable = mlx_xpm_file_to_image(game->mlx, MEAT, &w, &h);
 	game->img_player = mlx_xpm_file_to_image(game->mlx, PLAYER, &w, &h);
 	game->img_exit = mlx_xpm_file_to_image(game->mlx, EXIT, &w, &h);
 	game->img_enemy = mlx_xpm_file_to_image(game->mlx, ENEMY, &w, &h);
 	if (!game->img_floor || !game->img_wall
-		|| !game->img_collectible || !game->img_player || !game->img_enemy)
+		|| !game->img_collectable || !game->img_player || !game->img_enemy)
 	{
 		return (0);
 	}
