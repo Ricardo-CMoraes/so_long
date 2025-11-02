@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 20:14:37 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/02 18:10:44 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/02 18:22:03 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,12 @@
 # define DOWN_KEY 65364
 # define RIGHT_KEY 65363
 
-# define FLOOR "./tiles/path_tile32.xpm"
-# define WATER "./tiles/water_tile32.xpm"
-# define MEAT "./tiles/Meat32_3.xpm"
-# define PLAYER "./tiles/player32.xpm"
-# define EXIT "./tiles/exit_32.xpm"
+# define FLOOR "./tiles_bonus/path_tile32.xpm"
+# define WATER "./tiles_bonus/water_tile32.xpm"
+# define MEAT "./tiles_bonus/Meat32_3.xpm"
+# define PLAYER "./tiles_bonus/player32.xpm"
+# define EXIT "./tiles_bonus/exit_32.xpm"
+# define ENEMY "./tiles_bonus/enemy_tile32.xpm"
 
 # define ERR_ARG1 "Invalid arguments."
 # define ERR_ARG2 "Invalid extension. Expected: '.ber'"
@@ -51,6 +52,7 @@ typedef struct s_game
 	void	*img_collectible;
 	void	*img_player;
 	void	*img_exit;
+	void	*img_enemy;
 	int		player_x;
 	int		player_y;
 	int		collectible_count;
@@ -90,6 +92,5 @@ int		check_colums(t_game *game);
 int		check_char(t_game *game, char c, int y, int x);
 void	print_error(char *msg);
 void    print_moviments(t_game *game);
-
 
 #endif

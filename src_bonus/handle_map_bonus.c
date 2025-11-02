@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 20:45:38 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/02 18:11:24 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/02 18:34:54 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	fill_valid_map(char **map, int y, int x, t_game *game)
 {
 	if (y < 0 || y >= game->rows || x < 0 || x >= game->cols)
 		return ;
-	if (map[y][x] == '1' || map[y][x] == 'V')
+	if (map[y][x] == '1' || map[y][x] == 'V' || map[y][x] == 'X')
 		return ;
 	if (map[y][x] == 'C' || map[y][x] == 'E'
 		|| map[y][x] == '0' || map[y][x] == 'P')

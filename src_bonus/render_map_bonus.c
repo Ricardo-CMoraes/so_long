@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 20:42:52 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/02 18:11:34 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/02 18:29:40 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	render_tile(t_game *game, int x, int y)
 		img = game->img_collectible;
 	else if (tile_char == 'E')
 		img = game->img_exit;
+	else if (tile_char == 'X')
+		img = game->img_enemy;
 	else
 		return ;
 	mlx_put_image_to_window(game->mlx, game->win, img,
@@ -67,8 +69,9 @@ int	load_images(t_game *game)
 	game->img_collectible = mlx_xpm_file_to_image(game->mlx, MEAT, &w, &h);
 	game->img_player = mlx_xpm_file_to_image(game->mlx, PLAYER, &w, &h);
 	game->img_exit = mlx_xpm_file_to_image(game->mlx, EXIT, &w, &h);
+	game->img_enemy = mlx_xpm_file_to_image(game->mlx, ENEMY, &w, &h);
 	if (!game->img_floor || !game->img_wall
-		|| !game->img_collectible || !game->img_player)
+		|| !game->img_collectible || !game->img_player || !game->img_enemy)
 	{
 		return (0);
 	}

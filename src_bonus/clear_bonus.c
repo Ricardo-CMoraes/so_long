@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 20:13:38 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/02 18:11:09 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/02 18:41:17 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	cleanup_game(t_game *game)
 			mlx_destroy_image(game->mlx, game->img_collectible);
 		if (game->img_exit)
 			mlx_destroy_image(game->mlx, game->img_exit);
+		if (game->img_enemy)
+			mlx_destroy_image(game->mlx, game->img_enemy);
 		if (game->win)
 			mlx_destroy_window(game->mlx, game->win);
 		mlx_destroy_display(game->mlx);
