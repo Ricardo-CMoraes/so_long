@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 01:07:09 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/02 18:31:21 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/02 18:53:04 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,12 @@ void	print_moviments(t_game *game)
 {
 	char	*moviments;
 	char	*phrase;
-	int		x_pos;
-	int		y_pos;
 	int		color;
 
-	moviments= ft_itoa(game->move_count); 
+	moviments = ft_itoa(game->move_count);
 	phrase = ft_strjoin("Movimentos: ", moviments);
-	x_pos = 5;
-	y_pos = 15;
 	color = 0xFFFFFF;
-	mlx_string_put(game->mlx, game->win, x_pos, y_pos, color, phrase);
+	mlx_string_put(game->mlx, game->win, 5, 15, color, phrase);
 	free(moviments);
 	free(phrase);
 }
