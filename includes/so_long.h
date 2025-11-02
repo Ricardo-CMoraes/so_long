@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 20:14:37 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/01 14:57:00 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/01 15:57:14 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,7 @@ int		check_colums(t_game *game);
 
 int		check_char(t_game *game, char c, int y, int x);
 void	print_error(char *msg);
+void    print_moviments(t_game *game);
+
 
 #endif

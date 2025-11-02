@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 15:03:42 by rida-cos          #+#    #+#             */
-/*   Updated: 2025/10/19 16:44:37 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/01 16:09:18 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,25 +55,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	substr[i] = '\0';
 	return (substr);
-}
-
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	size_t	s1_len;
-	size_t	s2_len;
-	char	*joined;
-
-	if (!s1 || !s2)
-		return (NULL);
-	s1_len = ft_strlen((char *)s1);
-	s2_len = ft_strlen((char *)s2);
-	joined = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1));
-	if (!joined)
-		return (NULL);
-	ft_memcpy(joined, s1, s1_len);
-	ft_memcpy(joined + s1_len, s2, s2_len);
-	joined[s1_len + s2_len] = '\0';
-	return (joined);
 }
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
