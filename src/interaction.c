@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 23:54:56 by rdcm              #+#    #+#             */
-/*   Updated: 2025/10/29 21:34:36 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/02 00:58:05 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,7 @@ void	try_move(t_game *game, int new_x, int new_y)
 	game->move_count++;
 	ft_printf("Movimentos: %d\n", game->move_count);
 	if (next_tile == 'C')
-	{
 		game->c_count--;
-		ft_printf("Coletáveis restantes: %d\n", game->c_count);
-	}
 	update_map(game, new_x, new_y);
 }
 
