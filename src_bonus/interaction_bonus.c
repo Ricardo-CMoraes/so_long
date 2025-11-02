@@ -6,11 +6,11 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 23:54:56 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/01 16:31:54 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/02 18:11:30 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	handle_close_win(t_game *game)
 {
