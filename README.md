@@ -10,11 +10,11 @@ No projeto fazemos uso da biblioteca MiniLibX uma biblioteca gráfica simples de
 
 ## norm
 
-- Each function must be maximum 25 lines, not counting the function's own curly brackets.
-- Each line must be at most 80 columns wide, comments included.
-- A function can take 4 named parameters maximum.
-- You can't declare more than 5 variables per function.
-- You're not allowed to use: for, do...while, switch, case,  goto, ternary operators such as `?' and VLAs - Variable Length Arrays.
+- Cada função deve ter no máximo 25 linhas, sem contar as chaves da própria função.
+- Cada linha deve ter no máximo 80 colunas de largura, incluindo comentários.
+- Uma função pode receber no máximo 4 parâmetros nomeados.
+- Você não pode declarar mais de 5 variáveis por função.
+- Não é permitido usar: for, do...while, switch, case, goto, operadores ternários como `?` e VLAs (Variable Length Arrays).
 
 ## Game
 
