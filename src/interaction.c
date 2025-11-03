@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 23:54:56 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/02 00:58:05 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/02 22:14:57 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ void	try_move(t_game *game, int new_x, int new_y)
 	{
 		if (next_tile == 'E' && game->c_count == 0)
 		{
-			ft_printf("Parabéns! Você venceu em %d movimentos!\n",
+			ft_printf("Congratulations! You won in %d movements!\n",
 				game->move_count + 1);
 			handle_close_win(game);
 		}
 		return ;
 	}
 	game->move_count++;
-	ft_printf("Movimentos: %d\n", game->move_count);
+	ft_printf("Movements: %d\n", game->move_count);
 	if (next_tile == 'C')
 		game->c_count--;
 	update_map(game, new_x, new_y);
@@ -70,7 +70,7 @@ int	key_press(int keycode, t_game *game)
 	if (next_x < 0 || next_x >= game->cols
 		|| next_y < 0 || next_y >= game->rows)
 	{
-		ft_printf("Erro: Fora dos limites do mapa");
+		ft_printf("Outside the map's boundaries");
 		return (0);
 	}
 	if (check_key_pressed(keycode))

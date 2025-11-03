@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 14:48:59 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/02 18:11:39 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/02 22:16:59 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	if (!status)
 		return (1);
 	render_map(&game);
-	ft_printf("Movimentos: %d\n", game.move_count);
+	ft_printf("Movements: %d\n", game.move_count);
 	print_moviments(&game);
 	mlx_hook(game.win, 17, 0, handle_close_win, &game);
 	mlx_hook(game.win, 2, 1L << 0, key_press, &game);

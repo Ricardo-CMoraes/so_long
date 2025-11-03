@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 01:07:09 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/02 18:53:04 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/02 22:17:17 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	print_moviments(t_game *game)
 	int		color;
 
 	moviments = ft_itoa(game->move_count);
-	phrase = ft_strjoin("Movimentos: ", moviments);
+	phrase = ft_strjoin("Movements: ", moviments);
 	color = 0xFFFFFF;
 	mlx_string_put(game->mlx, game->win, 5, 15, color, phrase);
 	free(moviments);
