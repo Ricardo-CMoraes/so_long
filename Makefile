@@ -2,7 +2,7 @@ NAME = so_long
 NAME_BONUS = so_long_bonus
 
 CC = cc
-CFLAGS = -g -Wall -Wextra -Werror -Imlx_linux -Ilibft -Iincludes
+CFLAGS = -g -Wall -Wextra -Werror -I$(MLX_DIR) -Ilibft -Iincludes
 
 SRC = src/so_long.c \
 		src/clear.c \
@@ -31,10 +31,11 @@ LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 MLX_DIR = mlx_linux
+MLX = $(MLX_DIR)/libmlx_Linux.a
 
 MLX_FLAGS = -L$(MLX_DIR) -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz
 
-all: $(NAME)
+all: $(MLX) $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
 	$(CC) $(OBJ) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
@@ -42,10 +43,13 @@ $(NAME): $(OBJ) $(LIBFT)
 $(LIBFT):
 	make -C $(LIBFT_DIR)
 
+$(MLX):
+	@make -C $(MLX_DIR) > /dev/null 2>&1
+
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-bonus: $(NAME_BONUS)
+bonus: $(MLX) $(NAME_BONUS)
 
 $(NAME_BONUS): $(OBJ_BONUS) $(LIBFT)
 	$(CC) $(OBJ_BONUS) $(LIBFT) $(MLX_FLAGS) -o $(NAME_BONUS)
@@ -53,13 +57,15 @@ $(NAME_BONUS): $(OBJ_BONUS) $(LIBFT)
 clean:
 	rm -f $(OBJ) $(OBJ_BONUS)
 	make clean -C $(LIBFT_DIR)
+	@make clean -C $(MLX_DIR) > /dev/null 2>&1
 
 fclean: clean
 	rm -f $(NAME) $(NAME_BONUS)
 	make fclean -C $(LIBFT_DIR)
+	@make clean -C $(MLX_DIR) > /dev/null 2>&1
 
 re: fclean all
 
 rebonus: fclean bonus
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus rebonus
