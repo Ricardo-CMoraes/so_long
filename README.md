@@ -208,6 +208,8 @@ Da mesma maneira que fizemos a movimentação do player, sempre que o player pas
 
 ## Validações
 
+building...
+
 # Bonus
 
 - Fazer o jogador perder quando ele toca em um inimigo.
